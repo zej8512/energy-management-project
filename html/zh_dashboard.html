@@ -20,36 +20,32 @@
 
 <body class="bgC_191A19">
 
-    <!-- script -->
-    <script src="../js/dashboard.js"></script>
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-        crossorigin="anonymous"></script>
 
     <div class="index_container">
         <!-- header -->
-        <header class="p-3 mb-3 border-bottom">
+        <header class="p-3" id="header">
             <div class="container">
                 <div class="d-flex flex-wrap align-items-center justify-content-between">
                     <!-- logo -->
                     <a href="zh_dashboard.html">
-                        <img src="../img/powerHiveLogo.png" alt="Logo" id="logo">
+                        <img src="../img/horizontal-darkmode.png" alt="Logo" id="logo">
                     </a>
                     <!-- hamburger icon for smaller screens -->
                     <a href="javascript:void(0);" class="icon d-lg-none" onclick="toggleMenu()">
-                        <i class="fa fa-bars"></i>
+                        <i class="fa-solid fa-bars" style="color: var(--green-1);"></i>
                     </a>
                     <!-- menu -->
-                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" id="menu">
+                    <ul class="nav col-12 col-lg-auto  mb-md-0" id="menu">
                         <li><a href="zh_solar_analysis.html" class="nav-link">發電統計</a></li>
                         <li><a href="zh_consumption_analysis.html" class="nav-link">用電分析</a></li>
                         <li><a href="zh_devices.html" class="nav-link">設備維護</a></li>
                         <li><a href="zh_cost_recovery.html" class="nav-link">成本分析</a></li>
                         <li><a href="zh_settings.html" class="nav-link">系統設定</a></li>
                     </ul>
-                    <!-- person -->
-                    <!-- <div class="dropdown text-end">
+                </div>
+            </div>
+            <!-- person -->
+            <!-- <div class="dropdown text-end">
                         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
@@ -64,8 +60,8 @@
                             <li><a class="dropdown-item" href="#">Sign out</a></li>
                         </ul>
                     </div> -->
-                </div>
-            </div>
+
+
         </header>
 
 
@@ -102,62 +98,114 @@
             </div>
         </header> -->
 
+        <!-- house-model -->
+        <div class="house-model">
+            <img src="../img/dashboard/house-model.png">
+        </div>
+
 
         <div class="content-container">
 
-            <!-- house-model -->
-            <div class="house-model">
-                <img src="../img/dashboard/house-model.png">
-            </div>
+
 
             <!-- energy -->
             <div class="card-container">
-
                 <div class="egp-container">
-                    <div class="bgC_D9D9D9 p-3 rounded-40">
-                        <div class="energy-panal p-2">
-                            <H3><i class="fa-solid fa-database "></i></H3>
-                            <p class="c-565958-bd">暫存產能</p>
-                            <p>
-                                <span class="num">200</span>
-                                <span class="c-565958">kw</span>
-                            </p>
-                            <p>
-                                <span class="c-565958">預計收入</span>
-                                <span class="c-191A19-bd">1,200</span>
-                                <span class="c-565958">$</span>
-                            </p>
+
+                    <!-- 日期 -->
+                    <div class="date-picker-container">
+                        <!-- 日期顯示文字與按鈕 -->
+                        <p class="font-bold-gray-color" id="date-display">
+                            <!-- 預設日期將由 JavaScript 動態設定 -->
+                            <i class="fa-solid fa-chevron-down" id="toggle-picker"></i>
+                        </p>
+                        <!-- 隱藏的日期選擇器 -->
+                        <div class="date-picker" id="date-picker">
+                            <input type="date" id="date-input" />
                         </div>
                     </div>
-                    <div class="bgC_D9D9D9 p-3 rounded-40">
-                        <div class="energy-panal p-2">
-                            <H3><i class="fa-solid fa-table $red-600"></i></H3>
-                            <p class="c-565958-bd">Dec 25 2024</p>
-                            <p>
-                                <span class="num">30</span>
-                                <span class="c-565958">kw</span>
-                                <i class="fa-solid fa-arrow-up-long"></i>
+
+                    <!-- 今日數據區塊 -->
+                    <div class="today-stats display-flex">
+                        <div class="today-panel">
+                            <p class="font-bold-gray-color">
+                                <i class="fa-solid fa-bolt"></i> 光伏產能
                             </p>
+                            <span class="num">2.12</span>
+                            <span class="gray-color">kwh</span>
+                        </div>
+                        <div class="today-panel">
+                            <p class="font-bold-gray-color">
+                                <i class="fa-solid fa-house"></i> 家庭用電
+                            </p>
+                            <span class="num">1.97</span>
+                            <span class="gray-color">kwh</span>
+                        </div>
+                        <div class="today-panel">
+                            <p class="font-bold-gray-color">
+                                <i class="fa-solid fa-sack-dollar"></i> 預計收益
+                            </p>
+                            <span class="num"><i class="fa-solid fa-caret-up up"></i> 180</span>
+                            <span class="gray-color">$</span>
+                        </div>
+                    </div>
+
+                    <!-- 累計數據區塊 -->
+                    <div class="cumulative-stats display-flex">
+                        <div class="energy-panal">
+                            <H3><i class="fa-regular fa-calendar"></i></i></H3>
+                            <p class="font-bold-gray-color">
+                                今年累計產能
+                            </p>
+                            <span class="num"><i class="fa-solid fa-caret-up up"></i> 560.32</span>
+                            <span class="gray-color">kwh</span>
                             <p>
-                                <span class="c-565958">預計收入</span>
-                                <span class="c-191A19-bd">120</span>
-                                <span class="c-565958">$</span>
+                                <span class="gray-color">預計收入</span>
+                                <span class="font-bold-dark-color">67,238</span>
+                                <span class="gray-color">$</span>
+                            </p>
+                        </div>
+                        <div class="energy-panal">
+                            <H3><i class="fa-solid fa-calendar-days"></i></H3>
+                            <p class="font-bold-gray-color"> 本月累計產能
+                            </p>
+                            <span class="num"><i class="fa-solid fa-caret-down down"></i> 19.49</span>
+                            <span class="gray-color">kwh</span>
+                            <p>
+                                <span class="gray-color">預計收入</span>
+                                <span class="font-bold-dark-color">2,338</span>
+                                <span class="gray-color">$</span>
+                            </p>
+                        </div>
+                        <div class="energy-panal">
+                            <H3><i class="fa-solid fa-circle-dollar-to-slot"></i></H3>
+                            <p class="font-bold-gray-color">成本回收年限
+                            </p>
+                            <span class="num">5.8</span>
+                            <span class="gray-color">y</span>
+                            <p>
+                                <span class="gray-color">IRR</span>
+                                <span class="font-bold-dark-color">18</span>
+                                <span class="gray-color">%</span>
                             </p>
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
-            
-
-
         </div>
+    </div>
 
-        <!-- <div class="zindex-modal">
-            <img src="../img/dashboard/solar-panel.png">
-        </div> -->
+    <!-- solor-panel -->
+    <div id="solor-panel">
+        <img src="../img/dashboard/solar-panel.png">
+    </div>
+
+    <!-- script -->
+    <script src="../js/dashboard.js"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
 
 
 </body>

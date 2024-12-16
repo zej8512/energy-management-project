@@ -1,0 +1,241 @@
+/* header */
+header {
+    z-index: 1000;
+    background-color: rgba(25, 26, 25, 0.6);
+}
+
+
+.nav-link {
+    font-size: 18px;
+    color: var(--light-gray-color);
+    text-decoration: none;
+
+}
+
+.nav-link:hover {
+    color: var(--white-color)
+}
+
+.icon {
+    display: none;
+    /* 預設隱藏漢堡圖示 */
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#menu {
+    display: flex;
+    /* 預設顯示選單 */
+    flex-direction: row;
+}
+
+@media (max-width: 1200px) {
+
+    /* 在小於 1200px 時的樣式 */
+    .icon {
+        display: block;
+        /* 顯示漢堡圖示 */
+    }
+
+    #menu {
+        display: none;
+        /* 預設隱藏選單 */
+        flex-direction: column;
+        /* 漢堡選單展開時，縱向排列 */
+        background-color: #333;
+        /* 背景顏色 */
+        position: absolute;
+        top: 60px;
+        /* 根據 header 的高度調整 */
+        left: 0;
+        width: 100%;
+        /* 滿版寬度 */
+        z-index: 999;
+    }
+
+    #menu a {
+        color: white;
+        /* 小螢幕選單文字顏色 */
+        padding: 20px;
+        text-align: center;
+        /* 文字置中 */
+        display: block;
+        /* 將選單項目設為塊級元素 */
+    }
+
+    #menu a:hover {
+        background-color: #575757;
+        /* 滑鼠懸停背景色 */
+    }
+}
+
+
+
+
+/* house-model */
+
+.house-model {
+    position: relative;
+    /* 設置相對定位，方便控制內部圖片 */
+    overflow: hidden;
+    /* 隱藏溢出部分 */
+    display: flex;
+    /* 使用 Flexbox 讓內容居中 */
+    justify-content: center;
+    /* 水平置中 */
+    top: -0;
+    z-index: 1;
+}
+
+.house-model img {
+    width: auto;
+    /* 寬度自動調整，保持圖片比例 */
+    height: 100%;
+    /* 高度填滿容器 */
+    object-fit: cover;
+    /* 補充圖片內容，隱藏多餘部分 */
+    object-position: center;
+    /* 確保圖片內容居中顯示 */
+}
+
+@media (max-width: 1400px) {
+    .house-model img {
+        width: 1400px;
+        height:auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .house-model img {
+        width: 768px;
+        height:auto;
+    }
+}
+
+
+/* energy */
+
+/* 日期 */
+.date-picker-container {
+    position: relative;
+    display: inline-block;
+}
+
+#date-picker {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+#date-picker input[type="date"] {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+
+/* 卡片容器樣式 */
+.card-container {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    /* 毛玻璃效果 */
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+    /* 陰影 */
+    position: absolute;
+    border-radius: 12px 12px 0 0;
+    top: 60%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 84%;
+    z-index: 10;
+}
+
+/* 容器樣式 */
+.egp-container {
+    position: relative;
+    padding: 4rem;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 今日數據區塊 */
+.today-stats,
+.cumulative-stats {
+    display: flex;
+    justify-content: space-between;
+    /* 平均分布 */
+    align-items: center;
+    /* 垂直對齊 */
+    gap: 20px;
+}
+
+/* 每個數據面板 */
+.today-panel,
+.energy-panal {
+    text-align: left;
+    /* 文字齊左 */
+    flex: 1;
+    /* 平均分配寬度 */
+    padding-bottom: 80px;
+}
+
+.today-panel {
+    width: auto;
+    /* 自適應寬度 */
+}
+
+.energy-panal {
+    width: auto;
+    /* 自適應寬度 */
+}
+
+.up {
+    color: var(--up-color);
+}
+
+.down {
+    color: var(--down-color);
+}
+
+/* solor-panel */
+
+#solor-panel {
+    position: fixed;
+    /* 固定位置 */
+    right: -10px;
+    /* 距離右邊 20px */
+    bottom: -58px;
+    /* 距離底部 20px */
+    z-index: 100;
+    /* 保證顯示在前方 */
+}
+
+#solor-panel img {
+    overflow: hidden;
+    width: 440px;
+    height: auto;
+}
+
+@media (max-width: 1400px) {
+    #solor-panel img {
+        width: 320px;
+        height: auto;
+    }
+}
+
+@media (max-width: 767px) {
+    #solor-panel img {
+        width: 200px;
+        height: auto;
+    }
+}

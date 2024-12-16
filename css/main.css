@@ -1,144 +1,94 @@
-body {
-    /* 若無法使用 Verdana，後備使用 sans-serif */
-    font-family: Verdana, sans-serif;
+:root {
+    --background-color: #191A19;
+    --dark-color: #191a19;
+    --gray-color: #565958;
+    --light-gray-color: #c3c9c6;
+    --light-color: #d9f8eb;
+    --white-color: #FFFFFF;
+
+    --green-1: #e3fff5;
+    --green-2: #96d9c0;
+    --green-3: #51a687;
+    --green-4: #06402b;
+
+    --up-color: #D70015;
+    --down-color:#20c997;
+
+    --body-font-family: Verdana, sans-serif;
+
+    --font-weight-thin: 100;
+    --font-weight-light: 300;
+    --font-weight-normal: 500;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+
+
+}
+
+body,
+html {
     margin: 0;
     padding: 0;
-
+    height: 100%;
 }
 
-.bgC_191A19 {
-    background-color: #191A19;
+html {
+    scroll-behavior: smooth;
 }
 
-/* header */
-.nav-link {
-    color: #797d7b;
-    text-decoration: none;
-}
-
-.nav-link:hover {
-    color: #FFF;
-}
-
-/* 基本樣式 */
-.icon {
-    display: none; /* 預設隱藏漢堡圖示 */
-    font-size: 24px;
-    cursor: pointer;
-}
-
-#menu {
-    display: flex; /* 預設顯示選單 */
-    flex-direction: row;
-}
-
-@media (max-width: 1200px) {
-    /* 在小於 1200px 時的樣式 */
-    .icon {
-        display: block; /* 顯示漢堡圖示 */
-    }
-    #menu {
-        display: none; /* 預設隱藏選單 */
-        flex-direction: column; /* 漢堡選單展開時，縱向排列 */
-        background-color: #333; /* 背景顏色 */
-        position: absolute;
-        top: 60px; /* 根據 header 的高度調整 */
-        left: 0;
-        width: 100%; /* 滿版寬度 */
-        z-index: 999;
-    }
-    #menu a {
-        color: white; /* 小螢幕選單文字顏色 */
-        padding: 20px;
-        text-align: center; /* 文字置中 */
-        display: block; /* 將選單項目設為塊級元素 */
-    }
-    #menu a:hover {
-        background-color: #575757; /* 滑鼠懸停背景色 */
+@media screen and (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
     }
 }
 
-
-.house-model {
-    position: absolute;
-
-
-}
-
-.house-model img {
+body {
+    background: var(--background-color);
+    font-family: var(--body-font-family);
     position: relative;
-    overflow: hidden;
-    width: auto;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+}
 
+/*---------------------------------------
+  TYPOGRAPHY               
+-----------------------------------------*/
+
+.font-bold-dark-color {
+    font-weight: var(--font-weight-bold);
+    color: var(--dark-color);
+}
+
+.font-bold-gray-color {
+    font-weight: var(--font-weight-bold);
+    color: var(--gray-color)
+}
+
+.gray-color {
+    color: var(--gray-color);
 }
 
 
-.card-container {
-    background-color: rgba(237, 241, 239, 0.8);
-    position: absolute;
-    border-radius: 40px 40px 0 0;
-    height: 100%;
-    top: 720px;
-    /* 向上移動 200px */
-    left: 0;
-    width: 100%;
-    /* 視需要調整 */
-    z-index: 10;
-    /* 確保在 .contentContainer 之上 */
 
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--dark-color);
+    line-height: inherit;
 }
 
-.egp-container {
-    padding: 20px;
-    display: flex;
-    /* 使用 Flexbox 排列 */
-    justify-content: center;
-    /* 水平置中 */
-    gap: 100px;
-    /* 設定區塊之間的間距（可調整） */
-
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: var(--font-weight-bold);
 }
 
-.energy-panal {
-    width: 240px;
-    height: 240px;
-
-
-    padding: 20px;
-    /* 內距 */
-    /* text-align: center; 讓文字置中 */
-}
-
-.bgC_D9D9D9 {
-    background-color: #D9D9D9;
-}
-
-.rounded-40 {
-    border-radius: 40px;
-}
-
-/* font */
-.num {
-    font-size: 40px;
-    font-weight: bold;
-    color: #191A19;
-}
-
-.c-565958-bd {
-    font-weight: bold;
-    color: #565958;
-}
-
-.c-565958 {
-    color: #565958;
-}
-
-.c-191A19-bd {
-    font-weight: bold;
-    color: #191A19;
+h1,
+h2 {
+    font-weight: var(--font-weight-black);
 }
 
 h1 {
@@ -171,18 +121,6 @@ p {
     line-height: 24px;
 }
 
-/* padding */
-.pd-20 {
-    padding: 20px;
-}
-
-.pd-l60 {
-    padding-left: 60px;
-}
-
-
-
-/* 手機樣式 */
 @media (max-width: 767px) {
     h1 {
         font-size: 36px;
@@ -208,28 +146,54 @@ p {
         font-size: 14px;
         line-height: 20px;
     }
+
     .num {
         font-size: 32px;
         font-weight: bold;
     }
-
-
-
 }
+
+
+/* layout */
+.display-flex {
+    display: flex;
+}
+
+
+.rounded-20 {
+    border-radius: 20px;
+}
+
+
+
+/* font */
+.num {
+    font-size: 40px;
+    font-weight: bold;
+    color: #191A19;
+}
+
+@media (max-width: 767px) {
+    .num {
+        font-size: 32px;
+        font-weight: bold;
+    }
+}
+
+
+
+/* ------------------ */
+
+/* 手機樣式 */
+@media (max-width: 767px) {}
 
 /* 平板直立樣式 */
-@media (min-width: 768px) and (max-width: 1199px) {
-
-
-}
-
-
+@media (min-width: 768px) and (max-width: 1199px) {}
 
 /* 筆電樣式 */
 @media (min-width: 1200px) and (max-width: 1439px) {}
 
 /* 桌機樣式 */
-@media (min-width: 1440px) and (max-width: 1919px) {}
+@media (min-width: 1440px) {}
 
-/* 超大螢幕樣式 */
-@media (min-width: 1920px) {}
+/* ------------------ */
