@@ -1,12 +1,3 @@
-/*
-
-Tooplate 2127 Little Fashion
-
-https://www.tooplate.com/view/2127-little-fashion
-
-*/
-
-
 /*---------------------------------------
   CUSTOM PROPERTIES ( VARIABLES )             
 -----------------------------------------*/
@@ -18,7 +9,7 @@ https://www.tooplate.com/view/2127-little-fashion
   --grey-color:                 #d0d1d1;
   --p-color:                    #717275;
 
-  --body-font-family:           'Inter', sans-serif;
+  --body-font-family:           'Inter', Verdana, sans-serif;
 
   --h5-font-size:               24px;
   --p-font-size:                20px;
@@ -598,25 +589,26 @@ strong {
 .slick-slideshow .slick-dots {
   position: absolute;
   z-index: 2;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translate(0, -50%);
-  margin: 0 auto;
+  top: 50%; /* 垂直居中 */
+  right: 40px; /* 靠右側，距離右邊 20px，可根據需求調整 */
+  transform: translateY(-50%); /* 讓整個點陣垂直居中 */
+  margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column; /* 確保點陣垂直排列 */
+  justify-content: center; /* 垂直對齊 */
+  align-items: center; /* 水平居中對齊每個點 */
 }
 
 .slick-slideshow .slick-dots li {
-  background: transparent;
-  border: 5px solid rgba(255, 255, 255, 0.35);
-  border-radius: 100%;
+  background: rgba(255, 255, 255, 0.35); /* 白色透明度樣式 */
+  border: none; /* 移除邊框 */
+  border-radius: 50px; /* 圓角線條 */
   display: block;
-  width: 30px;
-  height: 30px;
-  margin: 10px;
-  padding: 5px;
-  margin-left: auto;
-  cursor: pointer;
+  width: 40px; /* 線條的寬度 */
+  height: 8px; /* 線條的高度 */
+  margin: 20px; /* 點與點之間的間距 */
+  cursor: pointer; /* 滑鼠懸停樣式 */
 }
 
 .slick-slideshow .slick-dots button {
@@ -629,7 +621,6 @@ strong {
   margin: 0;
   padding: 0;
   outline: none;
-  height: 0;
 }
 
 .slick-slideshow .slick-dots li:hover,

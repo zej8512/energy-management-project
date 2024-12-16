@@ -180,6 +180,17 @@ p {
     }
 }
 
+/* zoom */
+
+.zoom {
+    transition: transform 0.5s ease;
+    /* 平滑過渡效果 */
+}
+
+.zoom:hover {
+    transform: scale(1.2);
+    /* 放大1.2倍 */
+}
 
 
 /* ------------------ */

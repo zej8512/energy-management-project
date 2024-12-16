@@ -1,7 +1,6 @@
-
-.nav-link{
+.nav-link {
     font-weight: bold;
-    font-size: 20px; 
+    font-size: 20px;
 }
 
 /* button-77 */
@@ -25,7 +24,7 @@
     text-decoration: none;
     user-select: none;
     vertical-align: middle;
-    width: auto;
+    width: 200px;
     z-index: 0;
 }
 
@@ -93,4 +92,24 @@
 .button-77-link {
     color: inherit;
     text-decoration: none;
+}
+
+.img-fluid.zoom {
+    transition: transform 0.5s ease;
+    /* 平滑過渡效果 */
+}
+
+.img-fluid.zoom:hover {
+    transform: scale(1.15);
+    /* 放大1.2倍 */
+}
+
+.zoom {
+    transition: transform 0.5s ease;
+    /* 平滑過渡效果 */
+}
+
+.zoom:hover {
+    transform: scale(1.2);
+    /* 放大1.2倍 */
 }

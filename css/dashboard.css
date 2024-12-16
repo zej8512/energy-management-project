@@ -212,7 +212,7 @@ header {
 #solor-panel {
     position: fixed;
     /* 固定位置 */
-    right: -10px;
+    right: 0px;
     /* 距離右邊 20px */
     bottom: -58px;
     /* 距離底部 20px */
